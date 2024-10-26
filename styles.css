@@ -8,19 +8,14 @@ body {
   text-align: center;
 }
 
+#category {
+  display: none;
+}
+
 #apple {
   display: block;
 }
 
 #appleAns {
-  display: none;
-}
-
-#rabbit {
-  width: 300px;
-  display: block;
-}
-
-#rabbitAns {
   display: none;
 }
