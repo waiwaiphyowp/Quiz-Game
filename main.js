@@ -1,6 +1,8 @@
 const startBtn = document.getElementById("startBtn");
 const fruitBtn = document.getElementById("fruitBtn");
 const animalBtn = document.getElementById("animalBtn");
+const questionTitle = document.getElementById("questionTitle");
+const answerLists = document.getElementById("answerLists");
 
 // question & answer
 const questions = {
@@ -16,8 +18,8 @@ const questions = {
   }, 
 
   animal: {
-    title: "Choose the animal",
-    image: ".photo/rabbit.jepg",
+    title: "Choose the correct animal.",
+    image: "./photo/rabbit.jpeg",
     answer: [
       { name: 'Tiger', correct: false},
       { name: 'Rabbit', correct: true},
@@ -41,4 +43,12 @@ fruitBtn.addEventListener("click", () => {
 animalBtn.addEventListener("click", () => {
   displayQuestion('animal'); 
 });
+
+const displayQuestion = (questionIndex) => {
+  const currentQuestion = questions[questionIndex];
+  questionTitle.innerText = currentQuestion.title;
+  questionImage.src = currentQuestion.image;
+};
+
+
 
