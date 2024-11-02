@@ -33,7 +33,7 @@ body {
   font-size: 40px;
 }
 
-h2 {
+h2, #message, #errorMessage {
  color: rgb(6, 97, 119);
 }
 
@@ -44,7 +44,7 @@ h2 {
 #questionContainer {
   background-color: #bfe9ff;
   border-radius: 10%;
-  padding: 50px 100px;
+  padding: 20px 90px 80px 90px;
   width: 300px;
   height: 300px;
 }

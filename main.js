@@ -41,8 +41,6 @@ const questions = {
 
 }; // main question closing
 
-
-
 // start 
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
@@ -64,19 +62,25 @@ countryBtn.addEventListener("click", () => {
   displayQuestion('country');
 })
 
+// show conditional message once at the time only
+const conditionMessages = () => { 
+  message.innerHTML = '';
+  errorMessage.innerHTML = '';
+}
+
 //for question & answer
 const displayQuestion = (questionIndex) => {
   const currentQuestion = questions[questionIndex];
   questionTitle.innerText = currentQuestion.title;
   questionImage.src = currentQuestion.image;
   answerLists.innerHTML = '';
-  message.innerHTML = '';
-  errorMessage.innerHTML = '';
-  
-  currentQuestion.answers.forEach(answer => {
+  conditionMessages();
+
+  currentQuestion.answers.forEach(answer => { 
     const button = document.createElement('button');
-    button.innerText = answer.name;
-    button.onclick = () => {
+    button.innerText = answer.name; 
+    button.onclick = () => { 
+      conditionMessages();
       if(answer.correct) {
         message.innerText = "Correct!"
         } else {
