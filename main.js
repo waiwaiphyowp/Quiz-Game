@@ -3,6 +3,8 @@ const fruitBtn = document.getElementById("fruitBtn");
 const animalBtn = document.getElementById("animalBtn");
 const questionTitle = document.getElementById("questionTitle");
 const answerLists = document.getElementById("answerLists");
+const message = document.getElementById("message");
+const errorMessage = document.getElementById("errorMessage");
 
 // question & answer
 const questions = {
@@ -20,7 +22,7 @@ const questions = {
   animal: {
     title: "Choose the correct animal.",
     image: "./photo/rabbit.jpeg",
-    answer: [
+    answers: [
       { name: 'Tiger', correct: false},
       { name: 'Rabbit', correct: true},
       { name: 'Rat', correct: false}
@@ -44,10 +46,27 @@ animalBtn.addEventListener("click", () => {
   displayQuestion('animal'); 
 });
 
+//for question & answer
 const displayQuestion = (questionIndex) => {
   const currentQuestion = questions[questionIndex];
   questionTitle.innerText = currentQuestion.title;
   questionImage.src = currentQuestion.image;
+  answerLists.innerHTML = '';
+  message.innerHTML = '';
+  errorMessage.innerHTML = '';
+
+  currentQuestion.answers.forEach(answer => {
+    const button = document.createElement('button');
+    button.innerText = answer.name;
+    button.onclick = () => {
+      if(answer.correct) {
+        message.innerText = "Correct!";
+      } else {
+        errorMessage.innerText = "Incorrect! Try again.";
+      }
+    };
+    answerLists.appendChild(button);
+  });
 };
 
 
