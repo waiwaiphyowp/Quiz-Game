@@ -8,18 +8,71 @@ body {
   text-align: center;
 }
 
-#category {
+#questionImage {
+  width: 200px;
+}
+
+#startBtn {
+  border: none;
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+#category, 
+#appleContainer, 
+#animalContainer {
   display: none;
+}
+
+#cateTitle {
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #77A1D3;
+  font-size: 40px;
+}
+
+h2 {
+ color: rgb(6, 97, 119);
 }
 
 #apple {
   display: block;
 }
 
-#appleContainer {
-  display: none;
+#questionContainer {
+  background-color: #bfe9ff;
+  border-radius: 10%;
+  padding: 50px 100px;
+  width: 300px;
+  height: 300px;
 }
 
-#animalContainer {
-  display: none;
-}
+/* https://cssgradient.io/gradient-backgrounds/ button design idea from this website */
+button {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+ button {
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    border: none;
+  }
+
+  button:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
+
+  
+ 
+
+ 
+
+
