@@ -4,23 +4,24 @@ https://www.freecodecamp.org/news/javascript-in-the-browser-dom-and-events/
 reference DOM from this link
 */
 
-const startBtn = document.getElementById("#startBtn");
-const fruitBtn = document.getElementById("#fruitBtn");
-const animalBtn = document.getElementById("#animalBtn");
-const countryBtn = document.getElementById("#countryBtn");
+const startBtn = document.getElementById("startBtn");
+const fruitBtn = document.getElementById("fruitBtn");
+const animalBtn = document.getElementById("animalBtn");
+const countryBtn = document.getElementById("countryBtn");
 
-const questionTitle = document.getElementById("#questionTitle");
-const questionImage = document.getElementById("#questionImage");
-const answerLists = document.getElementById("#answerLists");
+const questionTitle = document.getElementById("questionTitle");
+const questionImage = document.getElementById("questionImage");
+const answerLists = document.getElementById("answerLists");
 
-const message = document.getElementById("#message");
-const errorMessage = document.getElementById("#errorMessage");
+const message = document.getElementById("message");
+const errorMessage = document.getElementById("errorMessage");
 
 // <------------------------ Variable Declarations ----------------------------->
 
 let currentFruitIndex = 0; 
 let currentAnimalIndex = 0;
 let currentCountryIndex = 0;
+
 
 // <------------------------ Array Structure ----------------------------->
 
@@ -150,6 +151,7 @@ countryBtn.addEventListener("click", () => {
 
 // <------------------------------- Function Declarations --------------------------------> 
 
+
 /*show conditional message once at the time only
 declare the function and assign the variable 
 */
@@ -225,5 +227,4 @@ const displayQuestion = (questionIndex) => {
     answerLists.appendChild(button);
   });
 };
-
 
