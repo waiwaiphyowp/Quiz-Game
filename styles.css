@@ -6,6 +6,7 @@
 
 body {
   text-align: center;
+  background-color: #0d284a;
 }
 
 #questionImage {
@@ -29,12 +30,11 @@ body {
   font-family: "Rubik Wet Paint", system-ui;
   font-weight: 400;
   font-style: normal;
-  color: #77A1D3;
   font-size: 40px;
 }
 
 h2, #message, #errorMessage {
- color: rgb(6, 97, 119);
+ color: rgb(255, 255, 255);
 }
 
 #apple {
@@ -42,7 +42,7 @@ h2, #message, #errorMessage {
 }
 
 #questionContainer {
-  background-color: #bfe9ff;
+  background-color: #588ba7;
   border-radius: 10%;
   padding: 20px 90px 80px 90px;
   width: 300px;

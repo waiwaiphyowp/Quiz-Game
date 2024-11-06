@@ -121,7 +121,10 @@ const questions = {
 }; // closing main question
 
 // <------------------------ Event Listeners ----------------------------->
-
+/*
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://stackoverflow.com/questions/73847421/add-an-event-listener-on-an-element-ive-created-in-javascript
+*/
 // start 
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
@@ -139,7 +142,7 @@ fruitBtn.addEventListener("click", () => {
 animalBtn.addEventListener("click", () => {
   currentAnimalIndex = 0;
   displayQuestion('animal'); 
-  animalBtn.style.display = "none";
+  animalBtn.style.display = "none"
 });
 
 // country
@@ -169,6 +172,7 @@ const displayQuestion = (questionIndex) => {
   https://www.freecodecamp.org/news/the-ternary-operator-in-javascript/
   reference to use Ternary Operators
   */
+ // selecting the correct question
   const question = questionIndex === 'fruit' ? 
     currentQuestion[currentFruitIndex] : 
 
@@ -186,6 +190,7 @@ const displayQuestion = (questionIndex) => {
   https://stackoverflow.com/questions/50528628/if-else-in-foreach 
   for forEach and loops 
   */
+ // checking correct answer
   question.answers.forEach(answer => { 
     const button = document.createElement('button');
     button.innerText = answer.name; 
@@ -208,6 +213,7 @@ const displayQuestion = (questionIndex) => {
         https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
         reference from here
         */
+       //checking display next question
         setTimeout(() => {
           // console.log("current animal index:", currentAnimalIndex); using this code of line to debug for animal question
           if (questionIndex === 'fruit' && currentFruitIndex < questions.fruit.length) {
@@ -219,7 +225,7 @@ const displayQuestion = (questionIndex) => {
           } else if (questionIndex === 'country' && currentCountryIndex < questions.country.length) {
             displayQuestion('country');
           }
-        }, 100); 
+        }, 200); 
       } else {
         errorMessage.innerText = "Incorrect! Try again.";
       }
