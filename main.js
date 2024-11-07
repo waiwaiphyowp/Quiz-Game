@@ -204,6 +204,14 @@ const displayQuestion = (questionIndex) => {
     button.onclick = () => { 
       conditionMessages(); // call the function here relevant message "correct or incorrect"
 
+      /*
+      https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button
+      https://medium.com/@ryan_forrester_/how-to-disable-a-button-in-javascript-how-to-guide-c253e1657451     
+      reference from this link for using disabled
+      */
+      const clickButtons = answerLists.querySelectorAll('button');
+      clickButtons.forEach(allButtons => allButtons.disabled = true);
+
       if (answer.correct) {
         message.innerText = "Correct!";
        if (questionIndex === 'fruit') {
