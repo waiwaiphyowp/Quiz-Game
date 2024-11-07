@@ -22,10 +22,12 @@ https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
 https://mcasimirian.medium.com/playing-audio-on-click-in-your-javascript-app-72aa955068fc
 https://www.w3schools.com/jsref/met_audio_play.asp
 reference from here
+https://mixkit.co/ audio from this link
 */
 const btnSound = new Audio('./sound/click.wav');
 const correctSound = new Audio('./sound/correct.wav');
 const wrongSound = new Audio('./sound/wrong.wav');
+
 // <------------------------ Variable Declarations ----------------------------->
 
 let currentFruitIndex = 0; 
