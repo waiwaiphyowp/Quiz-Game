@@ -1,10 +1,10 @@
 # Quiz Game 
 
-- live Link for Game
+live Link for Game
 https://waiwaiphyowp.github.io/Quiz-Game/
 
 # How to Play the Quiz Game 
-?
+
 - Welcome to the **Photo Quiz Game**! 
 
 **Start the Game**
