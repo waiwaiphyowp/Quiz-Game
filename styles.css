@@ -33,7 +33,7 @@ body {
   font-size: 40px;
 }
 
-h2, #message, #errorMessage {
+h2, #message, #errorMessage, #score{
  color: rgb(255, 255, 255);
 }
 

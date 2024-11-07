@@ -13,6 +13,7 @@ const questionTitle = document.getElementById("questionTitle");
 const questionImage = document.getElementById("questionImage");
 const answerLists = document.getElementById("answerLists");
 
+const score = document.getElementById("score");
 const message = document.getElementById("message");
 const errorMessage = document.getElementById("errorMessage");
 
@@ -22,6 +23,9 @@ let currentFruitIndex = 0;
 let currentAnimalIndex = 0;
 let currentCountryIndex = 0;
 
+let fruitScore = 0;
+let animalScore = 0;
+let countryScore = 0;
 
 // <------------------------ Array Structure ----------------------------->
 
@@ -134,6 +138,7 @@ startBtn.addEventListener("click", () => {
 // fruit
 fruitBtn.addEventListener("click", () => {
   currentFruitIndex = 0; 
+  fruitScore = 0;
   displayQuestion('fruit');
   fruitBtn.style.display = "none"; //hidden after press button
 });
@@ -141,6 +146,7 @@ fruitBtn.addEventListener("click", () => {
 // animal
 animalBtn.addEventListener("click", () => {
   currentAnimalIndex = 0;
+  animalScore = 0;
   displayQuestion('animal'); 
   animalBtn.style.display = "none"
 });
@@ -148,6 +154,7 @@ animalBtn.addEventListener("click", () => {
 // country
 countryBtn.addEventListener("click", () => {
   currentCountryIndex = 0;
+  countryScore = 0;
   displayQuestion('country');
   countryBtn.style.display = "none";
 });
@@ -196,11 +203,25 @@ const displayQuestion = (questionIndex) => {
     button.innerText = answer.name; 
     button.onclick = () => { 
       conditionMessages(); // call the function here relevant message "correct or incorrect"
+
       if (answer.correct) {
         message.innerText = "Correct!";
+       if (questionIndex === 'fruit') {
+        fruitScore++; // add score
+      } else if (questionIndex === 'animal') {
+        animalScore++;
+      } else if (questionIndex === 'country') {
+        countryScore++;
+      }
+      } else {
+        errorMessage.innerText = "Incorrect!";
+      }
+      totalScore(questionIndex); // for score
+
         // check fruit condition
         if (questionIndex === 'fruit') { 
           currentFruitIndex++; // Move to the next question
+          // fruitScore++; can't add here not working
         // check animal condition
         } else if (questionIndex === 'animal') {
           currentAnimalIndex++;
@@ -225,12 +246,19 @@ const displayQuestion = (questionIndex) => {
           } else if (questionIndex === 'country' && currentCountryIndex < questions.country.length) {
             displayQuestion('country');
           }
-        }, 200); 
-      } else {
-        errorMessage.innerText = "Incorrect! Try again.";
-      }
+        }, 200);  
     };
     answerLists.appendChild(button);
   });
 };
 
+// display score
+const totalScore = (category) => {
+  if (category === 'fruit') {
+    score.innerHTML = `Fruit Score: ${fruitScore}`;
+  } else if (category === 'animal') {
+    score.innerHTML = `Animal Score: ${animalScore}`;
+  } else if (category === 'country') {
+    score.innerText = `Country Score: ${countryScore}`;
+  }
+};
