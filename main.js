@@ -25,8 +25,8 @@ reference from here
 https://mixkit.co/ audio from this link
 */
 const btnSound = new Audio('./sound/click.wav');
-const correctSound = new Audio('./sound/correct.wav');
-const wrongSound = new Audio('./sound/wrong.wav');
+const correctSound = new Audio('./sound/correct.mp4');
+const wrongSound = new Audio('./sound/wrong.mp4');
 
 // <------------------------ Variable Declarations ----------------------------->
 
