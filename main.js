@@ -17,6 +17,15 @@ const score = document.getElementById("score");
 const message = document.getElementById("message");
 const errorMessage = document.getElementById("errorMessage");
 
+/* 
+https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
+https://mcasimirian.medium.com/playing-audio-on-click-in-your-javascript-app-72aa955068fc
+https://www.w3schools.com/jsref/met_audio_play.asp
+reference from here
+*/
+const btnSound = new Audio('./sound/click.wav');
+const correctSound = new Audio('./sound/correct.wav');
+const wrongSound = new Audio('./sound/wrong.wav');
 // <------------------------ Variable Declarations ----------------------------->
 
 let currentFruitIndex = 0; 
@@ -131,12 +140,14 @@ https://stackoverflow.com/questions/73847421/add-an-event-listener-on-an-element
 */
 // start 
 startBtn.addEventListener("click", () => {
+  btnSound.play(); //using play method 
   startBtn.style.display = "none";
   document.getElementById("category").style.display = "block";
 });
 
 // fruit
 fruitBtn.addEventListener("click", () => {
+  btnSound.play();
   currentFruitIndex = 0; 
   fruitScore = 0;
   displayQuestion('fruit');
@@ -145,6 +156,7 @@ fruitBtn.addEventListener("click", () => {
 
 // animal
 animalBtn.addEventListener("click", () => {
+  btnSound.play();
   currentAnimalIndex = 0;
   animalScore = 0;
   displayQuestion('animal'); 
@@ -153,6 +165,7 @@ animalBtn.addEventListener("click", () => {
 
 // country
 countryBtn.addEventListener("click", () => {
+  btnSound.play();
   currentCountryIndex = 0;
   countryScore = 0;
   displayQuestion('country');
@@ -214,6 +227,7 @@ const displayQuestion = (questionIndex) => {
 
       if (answer.correct) {
         message.innerText = "Correct!";
+        correctSound.play();
        if (questionIndex === 'fruit') {
         fruitScore++; // add score
       } else if (questionIndex === 'animal') {
@@ -223,6 +237,7 @@ const displayQuestion = (questionIndex) => {
       }
       } else {
         errorMessage.innerText = "Incorrect!";
+        wrongSound.play();
       }
       totalScore(questionIndex); // for score
 
