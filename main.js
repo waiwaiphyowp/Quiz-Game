@@ -151,6 +151,7 @@ startBtn.addEventListener("click", () => {
   btnSound.play(); //using play method 
   startBtn.style.display = "none";
   document.getElementById("category").style.display = "block";
+
 });
 
 // fruit
@@ -228,7 +229,7 @@ const displayQuestion = (questionIndex) => {
     const button = document.createElement('button');
     button.innerText = answer.name; 
     button.onclick = () => { 
-      conditionMessages(); // call the function here relevant message "correct or incorrect"
+    conditionMessages(); // call the function here relevant message "correct or incorrect"
 
       /*
       https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button
@@ -307,7 +308,7 @@ reference here to using javascript innerHTML
 const finalScore = () => {
   const finalTotal = fruitScore + animalScore + animalScore;
 
-  if (finalTotal > 6) {
+  if (finalTotal >= 6) {
     messageWinLose = "You Win!";
     winSound.play();
   } else {
