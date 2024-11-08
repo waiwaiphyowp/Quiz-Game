@@ -151,7 +151,6 @@ startBtn.addEventListener("click", () => {
   btnSound.play(); //using play method 
   startBtn.style.display = "none";
   document.getElementById("category").style.display = "block";
-
 });
 
 // fruit

@@ -1,7 +1,3 @@
-# Screenshot/Logo
-![alt text](photo/start.png)
-![alt text](photo/category.png)
-
 # Game Name
 
 Quiz Game 
@@ -9,6 +5,18 @@ Quiz Game
 # Quiz Game Link
 
 https://waiwaiphyowp.github.io/Quiz-Game/
+
+# Screenshot/Logo
+## Start Game
+![alt text](photo/start.png)
+
+## Choose Category
+![alt text](photo/category.png)
+![alt text](photo/selectCategory.png)
+
+## Win & Lose
+![alt text](photo/win.png)
+![alt text](photo/lose.png)
 
 # How to Play the Quiz Game 
 
