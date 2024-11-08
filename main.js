@@ -27,6 +27,8 @@ https://mixkit.co/ audio from this link
 const btnSound = new Audio('./sound/click.wav');
 const correctSound = new Audio('./sound/correct.mp4');
 const wrongSound = new Audio('./sound/wrong.mp4');
+const winSound = new Audio("./sound/win.wav");
+const loseSound = new Audio("./sound/lose.mp4");
 
 // <------------------------ Variable Declarations ----------------------------->
 
@@ -305,8 +307,14 @@ reference here to using javascript innerHTML
 const finalScore = () => {
   const finalTotal = fruitScore + animalScore + animalScore;
 
-  // use Ternary Operators check conditional
-  const messageWinLose = finalTotal > 6 ? "You Win!" : "You Lose!";
+  if (finalTotal > 6) {
+    messageWinLose = "You Win!";
+    winSound.play();
+  } else {
+    messageWinLose = "You Lose!";
+    loseSound.play();
+  }
+
   // display final score on question container
   /*
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
@@ -321,6 +329,8 @@ const finalScore = () => {
   <p><strong>Animal Quiz</strong>: ${animalScore} / ${questions.animal.length}</p>
   <p><strong>Country Quiz</strong>: ${countryScore} / ${questions.country.length}</p>
 `;
+document.getElementById("cateTitle").style.display = "none";
+document.getElementById("score").style.display = "none";
 conditionMessages(); 
 }
 
