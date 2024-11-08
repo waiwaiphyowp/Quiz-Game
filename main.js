@@ -38,6 +38,10 @@ let fruitScore = 0;
 let animalScore = 0;
 let countryScore = 0;
 
+let fruitFinal = false;
+let animalFinal = false;
+let countryFinal = false;
+
 // <------------------------ Array Structure ----------------------------->
 
 /*
@@ -152,6 +156,7 @@ fruitBtn.addEventListener("click", () => {
   btnSound.play();
   currentFruitIndex = 0; 
   fruitScore = 0;
+  fruitFinal = false;
   displayQuestion('fruit');
   fruitBtn.style.display = "none"; //hidden after press button
 });
@@ -161,6 +166,7 @@ animalBtn.addEventListener("click", () => {
   btnSound.play();
   currentAnimalIndex = 0;
   animalScore = 0;
+  animalFinal = false;
   displayQuestion('animal'); 
   animalBtn.style.display = "none"
 });
@@ -170,13 +176,16 @@ countryBtn.addEventListener("click", () => {
   btnSound.play();
   currentCountryIndex = 0;
   countryScore = 0;
+  countryFinal = false;
   displayQuestion('country');
   countryBtn.style.display = "none";
 });
 
 // <------------------------------- Function Declarations --------------------------------> 
-
-
+/*
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+reference to use arrow function
+*/
 /*show conditional message once at the time only
 declare the function and assign the variable 
 */
@@ -270,12 +279,50 @@ const displayQuestion = (questionIndex) => {
             
           } else if (questionIndex === 'country' && currentCountryIndex < questions.country.length) {
             displayQuestion('country');
+          } else {
+            if (questionIndex === 'fruit') {
+              fruitFinal = true;
+            } else if (questionIndex === 'animal') {
+              animalFinal = true;
+            } else if (questionIndex === 'country') {
+              countryFinal = true;
+            }
+            if (fruitFinal && animalFinal && countryFinal) {
+              finalScore();
+            }
           }
         }, 200);  
     };
     answerLists.appendChild(button);
   });
 };
+/*
+https://coderpad.io/blog/development/javascript-innerhtml/
+https://stackoverflow.com/questions/31316445/javascript-innerhtml
+reference here to using javascript innerHTML 
+*/
+//display final score
+const finalScore = () => {
+  const finalTotal = fruitScore + animalScore + animalScore;
+
+  // use Ternary Operators check conditional
+  const messageWinLose = finalTotal > 6 ? "You Win!" : "You Lose!";
+  // display final score on question container
+  /*
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
+  https://www.freecodecamp.org/news/javascript-array-length-tutorial/
+  reference using .length
+  */
+  questionContainer.innerHTML = `
+  <h3>Quiz Complete!</h3>
+  <p>${messageWinLose}</p>  
+  <p>You completed all three quizs:</p>
+  <p><strong>Fruit Quiz</strong>: ${fruitScore} / ${questions.fruit.length}</p>
+  <p><strong>Animal Quiz</strong>: ${animalScore} / ${questions.animal.length}</p>
+  <p><strong>Country Quiz</strong>: ${countryScore} / ${questions.country.length}</p>
+`;
+conditionMessages(); 
+}
 
 // display score
 const totalScore = (category) => {
